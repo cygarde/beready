@@ -14,5 +14,5 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :zip_code, presence: true
   validates :country, presence: true
-  validates :phone, presence: true, uniqueness: true, length: { 10 }
+  validates :phone, presence: true, uniqueness: true
 end

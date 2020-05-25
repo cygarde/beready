@@ -33,10 +33,9 @@ ActiveRecord::Schema.define(version: 2020_05_25_174822) do
     t.integer "unit_price"
     t.string "category"
     t.string "city"
-    t.bigint "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -69,6 +68,5 @@ ActiveRecord::Schema.define(version: 2020_05_25_174822) do
 
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
-  add_foreign_key "products", "users"
   add_foreign_key "reviews", "bookings"
 end

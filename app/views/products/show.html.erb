@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="d-flex">
+    <%= cl_image_tag("ems4u1fvu5jfgst1lkqy",
+      width: 230, height: 230, crop: :fill) %>
+
+    <div class="row">
+      <div class="col-12 ml-5 mt-5">
+         <h1><%= @product.name %></h1>
+         <p><%= @product.description %></p>
+           <p>Etat <%= @product.state %></p>
+           <p>Catégorie: <%= @product.category %></p>
+       </div>
+    </div>
+  </div>
+
+  <h5 class="pt-3">Réserver ce produit </h5>
+
+  <form action="">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1"></span>
+      <input type="text" class="form-control" placeholder="Date de début" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mt-2">
+      <span class="input-group-addon" id="basic-addon1"></span>
+      <input type="text" class="form-control" placeholder="Date de fin" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
+  </form>
+
+   <%= link_to "Home", products_path %>
+
+  <div class="flex">
+    <i class="fa fa-facebook-square fa-2x mr-2"></i>
+    <i class="fa fa-twitter-square fa-2x mr-2"></i>
+    <i class="fa fa-pinterest-square fa-2x mr-2"></i>
+  </div>
+
+</div>
+

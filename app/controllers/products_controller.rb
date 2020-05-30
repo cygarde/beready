@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
 before_action :set_product, only: [:show, :edit, :destroy]
 
@@ -13,9 +13,11 @@ before_action :set_product, only: [:show, :edit, :destroy]
   end
 
   def create
+
     @product = Product.new(product_params)
+    @product.user = current_user
     if @product.save
-      redirect_to @product
+      redirect_to product_path(@product)
     else
       render :new
     end

@@ -1,12 +1,33 @@
-<h1>All our products</h1>
-
-<ul>
-  <% @products.each do |product| %>
-  <li><%= products.name %></li>
-  <li><%= products.description %></li>
-  <li><%= products.state %></li>
-  <li><%= products.unit_price %></li>
-  <li><%= products.category %></li>
-  <li><%= products.city %></li>
-  <% end %>
-</ul>
+<div class="index-products">
+  <h1>Trouve ton bonheur ! </h1>
+  <ul>
+  </ul>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="grid-page">
+      <% @products.each do |product| %>
+      <%= link_to product_path(product) do %>
+      <% if product.photo.attached? %>
+      <div class="img-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path product.photo.key, height: 300, width: 400, crop: :fill %>)">
+        <%= product.name %>
+        <%= product.description %>
+        <%= product.state %>
+        <%= product.unit_price %>
+        <%= product.category %>
+        <%= product.city %>
+      </div>
+      <% else %>
+      <div>  <%= product.name %>
+        <%= product.description %>
+        <%= product.state %>
+        <%= product.unit_price %>
+        <%= product.category %>
+        <%= product.city %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

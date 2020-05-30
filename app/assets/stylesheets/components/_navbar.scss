@@ -1,16 +1,22 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
-  top: 0;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
   position: fixed;
-  color: white;
   width: 100%;
   z-index: 100;
 }
 
- .navbar-light .navbar-nav .nav-link {
-  color: white;
-  }
+.navbar-lewagon-white {
+  background-color: white;
+
+}
+
 
 
 

@@ -1,0 +1,14 @@
+
+      <% @products.each do |product| %>
+      <%= link_to product_path(product) do %>
+        <div class="card-trip">
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= product.name %></h2>
+              <h3><%= product.category %></h3>
+              <p><%= product.description %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= product.unit_price %></h2>
+          </div>
+        </div>
+

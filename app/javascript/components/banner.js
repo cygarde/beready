@@ -2,8 +2,8 @@ import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
   new Typed('#banner-typed-text', {
-    strings: ["Louez votre matériel pour vos vacances ...", "Augmentez vos revenu !", "Tente", "sace à dos", "gourde", "appareille photo", "Des milliers d'annonces... !"],
-    typeSpeed: 50,
+    strings: ["Bottes","Rechaud", "Duvet", "Poncho", "Tente", "Sac à dos", "Gourde", "Appareil photo", "Tapis de sol"],
+    typeSpeed: 70,
     loop: true
   });
 }

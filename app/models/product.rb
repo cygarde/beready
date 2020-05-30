@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
+
   CATEGORY = ["a","b"]
 
   validates :name, presence: true

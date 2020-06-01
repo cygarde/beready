@@ -1,14 +1,45 @@
 <div class="beready-ctn">
+  <div class="card-category-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
+    <h1 class="align-middle">Les indispensables à louer</h1>
+  </div>
 
+  <div class="products-presentation">
+      <% @products.each do |product| %>
+        <div id="container">
+          <div class="product-details">
+            <% if product.photo.attached? %>
+              <div>
+                <p><%= product.name %></p>
+                  <span class="hint-star star">
 
-<div class="card-category-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
-  <h1>Tout pour faire du Ski</h1>
-</div>
-  <div class="container ctn-index mt-5 mb-5">
-    <div class="card col-3">
-      <div class="grid-page">
-        <% @products.each do |product| %>
-        <% if product.photo.attached? %>
+                      <% counter = 0 %>
+                      <% 3.times do %>
+                      <i class="fa <%= product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                      <% counter += 1 %>
+                    <% end %>
+                </span>
+
+                <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+              </span>
+               <!-- <p class="information">
+                  <%= product.description %>
+                </p>-->
+                <div class="control">
+                  <button class="btn">
+                  <span class="price"><%= product.unit_price %>$</span>
+                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                  <!--<%= link_to "Détail", product_path(product) %>-->
+                  <span class="buy"><%= link_to "Détails", product_path(product), class:"text-dark" %></span>
+                  </button>
+                </div>
+          </div>
+    </div>
+
+              <div class="product-image">
+                <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+              </div>
+
+        <% else %>
           <%= product.name %>
           <%= product.description %>
           <%= product.state %>
@@ -16,19 +47,8 @@
           <%= product.category %>
           <%= product.city %>
           <%= link_to "Détail", product_path(product) %>
-        </div>
-        <% else %>
-        <div>  <%= product.name %>
-          <%= product.description %>
-          <%= product.state %>
-          <%= product.unit_price %>
-          <%= product.category %>
-          <%= product.city %>
-          <%= link_to "Détail", product_path(product) %>
-        </div>
         <% end %>
-        <% end %>
-      </div>
     </div>
-  </div>
+    <% end %>
+    </div>
 </div>

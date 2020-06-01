@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :bookings, only: [ :create ]
   end
+
+  namespace :admin do
+    resources :products, only: [ :index ]
+
+  end
 end

@@ -23,12 +23,12 @@
         </div>
       </li>
       <% else %>
-      <li class="nav-item">
-        <%= link_to "Poser une annonce ", new_product_path, class: "btn btn-info btn-lg" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-white" %>
-      </li>
+        <li class="nav-item">
+          <%= link_to "Poser une annonce ", new_product_path, class: "btn btn-outline-warning" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-white" %>
+        </li>
       <% end %>
     </ul>
   </div>

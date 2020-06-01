@@ -24,6 +24,7 @@ before_action :set_product, only: [:show, :edit, :destroy]
   end
 
   def show
+    @booking = Booking.new()
   end
 
   def edit

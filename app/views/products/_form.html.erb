@@ -5,5 +5,7 @@
   <%= f.input :unit_price %>
   <%= f.input :category %>
   <%= f.input :city %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= f.input :photo, as: :file %>
+  <input type="submit" value="Ajouter" class="btn btn-success mt-2" style="width: 100%">
 <% end %>
+

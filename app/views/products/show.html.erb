@@ -3,7 +3,10 @@
   <div class="bg-light text-dark">
 
   <div class="d-flex p-1">
+    <% if @product.photo.key %>
     <%= cl_image_tag @product.photo.key, width: 230, height: 230, crop: :fill %>
+    <%end%>
+
 
     <div class="row">
       <div class="col-12 ml-3 mt-3">
@@ -26,17 +29,7 @@
     </div>
   </div>
 
-  <form action="">
-    <div class="input-group pt-2">
-      <span class="input-group-addon" id="basic-addon1"></span>
-      <input type="text" class="form-control" placeholder="Date de début" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mt-2">
-      <span class="input-group-addon" id="basic-addon1"></span>
-      <input type="text" class="form-control" placeholder="Date de fin" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
-    <input type="submit" value="Réserver" class="btn btn-success mt-2" style="width: 100%">
-  </form>
+
 
   <div class="d-flex mt-2">
     <%= link_to "Back", products_path, class:"text-dark" %>

@@ -1,0 +1,36 @@
+
+<div class="beready-ctn">
+
+
+<div class="card-category-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
+  <h2>Mes produits en location</h2>
+</div>
+
+  <div class="container ctn-index mt-5 mb-5">
+    <div class="card col-3">
+      <div class="grid-page">
+        <% @products.each do |product| %>
+        <% if product.photo.attached? %>
+          <%= product.name %>
+          <%= product.description %>
+          <%= product.state %>
+          <%= product.unit_price %>
+          <%= product.category %>
+          <%= product.city %>
+          <%= link_to "Détail", product_path(product) %>
+        </div>
+        <% else %>
+        <div>  <%= product.name %>
+          <%= product.description %>
+          <%= product.state %>
+          <%= product.unit_price %>
+          <%= product.category %>
+          <%= product.city %>
+          <%= link_to "Détail", product_path(product) %>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

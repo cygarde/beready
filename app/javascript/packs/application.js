@@ -23,9 +23,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { initSelect2 } from '../components/select2';
+import { initMapbox } from '../plugins/init_mapbox';
+initMapbox();
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

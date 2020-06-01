@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
 before_action :set_product, only: [:show, :edit, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.where.not(latitude: nil, longitude: nil)
+    @markers = @products.map do |product|
+      { lat: product.latitude, lng: product.longitude }
+    end
   end
 
   def new

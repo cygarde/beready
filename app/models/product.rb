@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
   CATEGORY = ["a","b"]
 
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
   validates :name, presence: true
   validates :description, presence: true
   validates :state, presence: true, inclusion: { in: [1,2,3], allow_nil: false }

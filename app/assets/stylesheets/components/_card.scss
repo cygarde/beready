@@ -8,25 +8,42 @@ body {
   background-size: cover;
   }
 
-#container{
+#container-app {
   box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
   background: rgba(255, 255, 255, 0.90);
   text-align: center;
   border-radius: 5px;
   overflow: hidden;
-  margin: 5em auto;
-  height: 175px;
-  width: 350px;
+  margin: 1em auto;
+  height: 120px;
+  width: 100%;
+}
+
+#container-app-show {
+  box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+  background: rgba(255, 255, 255, 0.90);
+  text-align: left;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 1em auto;
+  height: 250px;
+  width: 100%;
 }
 
 .products-presentation {
   display: block;
   flex-wrap: wrap;
+  margin-left: 5px;
+  width: 100%;
+}
+
+.absolute {
+  position: absolute
 }
 
 /*  Product details  */
 .product-details {
-  position: relative;
+  position: absolute;
   text-align: left;
   padding: 20px;
   height: 100%;
@@ -92,10 +109,8 @@ body {
 /* control */
 
 .control{
-  position: absolute;
-  bottom: 5%;
-  left: 22.8%;
-
+  position: relative;
+  bottom: 1%;
 }
 /* the Button */
 .btn {
@@ -155,15 +170,17 @@ body {
 
 
 /* product image  */
-.product-image {
+.product-image img {
   transition: all 0.3s ease-out;
   display: inline-block;
   position: relative;
   overflow: hidden;
   height: 100%;
   float: right;
-  width: 50%;
+  width: 35%;
   display: inline-block;
+  background-size: cover;
+  object-fit: cover;
 }
 
 #container img {width: 100%;height: 100%;}

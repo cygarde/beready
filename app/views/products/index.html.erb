@@ -3,59 +3,65 @@
     <h1 class="align-middle">Les indispensables à louer</h1>
   </div>
 
-  <div class="products-presentation">
-      <% @products.each do |product| %>
-        <div id="container">
-          <div class="product-details">
-            <% if product.photo.attached? %>
-              <div>
-                <p><%= product.name %></p>
-                  <span class="hint-star star">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="products-presentation">
+            <% @products.each do |product| %>
+            <div id="container-app">
 
-                      <% counter = 0 %>
-                      <% 3.times do %>
-                      <i class="fa <%= product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                      <% counter += 1 %>
-                    <% end %>
-                </span>
+                <div class="product-details">
 
-                <!--<i class="fa fa-star" aria-hidden="true"></i>-->
-              </span>
-               <!-- <p class="information">
-                  <%= product.description %>
-                </p>-->
-                <div class="control">
-                  <button class="btn">
-                  <span class="price"><%= product.unit_price %>$</span>
-                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                  <!--<%= link_to "Détail", product_path(product) %>-->
-                  <span class="buy"><%= link_to "Détails", product_path(product), class:"text-dark" %></span>
-                  </button>
-                </div>
-          </div>
-    </div>
+                  <div class="d-flex">
 
-              <div class="product-image">
-                <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+                    <% if product.photo.attached? %>
+                      <p><%= product.name %></p>
+                      <span class="hint-star star">
+                        <% counter = 0 %>
+                        <% 3.times do %>
+                        <i class="fa <%= product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                        <% counter += 1 %>
+                        <% end %>
+                      </span>
+                    </div>
+                    <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+                    <!-- <p class="information">
+                      <%= product.description %>
+                    </p>-->
+                    <div class="control">
+                      <button class="btn">
+                      <span class="price"><%= product.unit_price %>$</span>
+                      <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                        <!--<%= link_to "Détail", product_path(product) %>-->
+                      <span class="buy"><%= link_to "Détails", product_path(product), class:"text-dark" %></span>
+                      </button>
+                    </div>
               </div>
+              <div class="product-image">
+                <%= cl_image_tag product.photo.key %>
+              </div>
+                <% else %>
+                <%= product.name %>
+                <%= product.description %>
+                <%= product.state %>
+                <%= product.unit_price %>
+                <%= product.category %>
+                <%= product.city %>
+                <%= link_to "Détail", product_path(product) %>
+                <% end %>
+              </div>
+              <% end %>
+          </div>
+        </div>
 
-        <% else %>
-          <%= product.name %>
-          <%= product.description %>
-          <%= product.state %>
-          <%= product.unit_price %>
-          <%= product.category %>
-          <%= product.city %>
-          <%= link_to "Détail", product_path(product) %>
-        <% end %>
+        <div class="col-6">
+          <div
+            id="map"
+            style="height: 600px; width:100%"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+            data-markers="<%= @markers.to_json %>"
+          ></div>
+        </div>
+      </div>
     </div>
-
-  </div>
-<div
-  id="map"
-  style="height: 600px; width:100%"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-markers="<%= @markers.to_json %>"
-></div>
-
 </div>

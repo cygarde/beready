@@ -24,11 +24,15 @@ require("channels")
 // External imports
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { initSelect2 } from '../components/select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 initMapbox();
+initAutocomplete();
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

@@ -1,11 +1,24 @@
+<div class="banner">
+<div class="home-video-wrapper align-items-center justify-content-center">
+  <%= video_tag "arbres_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+</div>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= image_path 'tente_banner.jpg' %>');">
   <div class="banner-content">
-    <h1>BE READY !</h1>
-    <h3>Trouve ce dont tu as besoin ...</h3>
+    <h3>N'achete pas ! Ne t'encombre pas !</h3>
+    <h3>Trouve ce dont tu as besoin à destination</h3>
     <p>
       <span id="banner-typed-text"></span>
     </p>
+
+    <%= select_tag "timezone", options_from_collection_for_select(
+    ActiveSupport::TimeZone.all.
+    map { |tz| tz.tzinfo }.
+    sort_by { |tzinfo| tzinfo.name },
+    :name, :name),
+    class: 'select2' %>
+    <%= link_to "Trouver", products_path, class: "btn btn-outline-success" %>
+  </div>
+
 
      <%= form_tag products_path, method: :get do %>
       <%= text_field_tag :query,
@@ -16,10 +29,15 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
+
 </div>
 <div class="container">
   <div class="last-cards">
     <h2>Les objets les plus loués</h2>
+
+  </div>
+</div>
+
 
       <div class="products-presentation">
         <% @products.each do |product| %>
@@ -66,61 +84,42 @@
   <div class="text-categorie">
     <h2>Selectionnez vos produits a louer en fonction de l'activité pratiqué pendant vos vacances </h2>
   </div>
-
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path 'tente_banner.jpg' %>');">
       Surf
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Randonné
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Ski
     </div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Camping
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Ville
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Bivouac
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Plongée sous marine
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Pêche
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Ski nautique
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Pour le nourisson
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Road trip
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'tente_banner.jpg' %>');">
       Divers
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-

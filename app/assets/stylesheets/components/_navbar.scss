@@ -3,7 +3,7 @@
   background-color: transparent;
   transition: 0.5s background-color ease;
   transition: all 0.3s ease;
-  height: 70px;
+  height: 80px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -13,19 +13,34 @@
   top: 0;
 }
 
-.navbar-lewagon-white {
-  background-color: white;
-
+.pictos {
+  margin-right: 9px;
+  color: #49C607;
 }
 
+.text-picto {
+  font-size: 12px;
+}
 
+.logo {
+color: #49C607;
+font: small-caps bold 24px/1 sans-serif;
+}
 
+.logo:hover {
+  color: #58ef07;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 80px;
+  border-radius: 5%;
 }
 

@@ -2,10 +2,11 @@ class BookingsController < ApplicationController
   #skip_before_action :authenticate_user! only: [:home]
 
   def create
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
     @booking = Booking.new(booking_params)
     @booking.product = @product
-    @booking = Booking.save
+    @booking.user = current_user
+    @booking.save
 
     if @booking.save
       redirect_to products_path(@product)

@@ -1,49 +1,74 @@
 <div class="beready-ctn ">
-<div class="container">
-  <div class="bg-light text-dark">
-
-  <div class="d-flex p-1">
-    <% if @product.photo.key %>
-    <%= cl_image_tag @product.photo.key, width: 230, height: 230, crop: :fill %>
-    <%end%>
-
-
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-12 ml-3 mt-3">
-
-           <h2><%= @product.name %></h2>
-           <p>Description: <%= @product.description %></p>
-             <p>Etat:
-            <span class="badge badge-primary badge-pill">
-              <% counter = 0 %>
-              <% 3.times do %>
-                <i class="fa <%= @product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                <% counter += 1 %>
-              <% end %>
-            </span>
-            </p>
-           <p>Catégorie: <%= @product.category %></p>
-           <p>Prix: <%= @product.unit_price %>€</p>
-       </div>
+      <div class="col-12 col-md-8">
+        <div class="name-category">
+          <h2>Catégorie: <%= @product.category %></h2>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <% if @product.photo.key %>
+              <%= cl_image_tag @product.photo.key, class:"img-show"%>
+              <%end%>
+            </div>
+          </div>
+        </div>
+        <div class="product-name-show">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h2><%= @product.name %></h2>
+            </div>
+            <div>
+              <h2><%= @product.unit_price %>€ /Jour</h2>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <h4>Description:</h4>
+            <div class="card-description-show">
+              <p><%= @product.description %></p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-2">
+          <%= link_to "Retour", products_path, class:"text-dark" %>
+          <div class="ml-3">
+            <%= link_to "Supprimer", product_path, method: :delete, class:"text-dark" %>
+          </div>
+        </div>
+        <div class="flex" mt-4>
+          <i class="fab fa-facebook-square"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card-messaage-show">
+          <h3>Contacter le loueur</h3>
+          <p>Vous pouvez posez vos questions, sur l'état ou l'utilisation du produit avant de réserver</p>
+          <%= link_to "Envoyer", products_path, class: "btn btn-outline-success" %>
+        </div>
+        <div class="card-resa">
+          <h4>Sélectionnez vos dates </h4>
+          <%= simple_form_for([@product, @booking]) do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date  %>
+          <%= f.submit "Réservez", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="card-note-show">
+          <h4>Etat</h4>
+          <span class="hint-star star">
+            <% counter = 0 %>
+            <% 3.times do %>
+            <i class="fa <%= @product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+            <% counter += 1 %>
+            <% end %>
+          </span>
+        </div>
       </div>
     </div>
   </div>
-
-
-
-  <div class="d-flex mt-2">
-    <%= link_to "Back", products_path, class:"text-dark" %>
-    <div class="ml-3">
-      <%= link_to "Delete", product_path, method: :delete, class:"text-dark" %>
-    </div>
-  </div>
-
-  <div class="flex" mt-4>
-    <i class="fab fa-facebook-square"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-instagram"></i>
-  </div>
-
-</div>
-
 </div>

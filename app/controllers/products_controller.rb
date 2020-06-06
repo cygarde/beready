@@ -13,6 +13,12 @@ before_action :set_product, only: [:show, :edit, :destroy]
         infoWindow: render_to_string(partial: "info_window", locals: { product: product })
       }
     end
+      if params[:query].present?
+        @products = Product.where(name: params[:query])
+      else
+        @products = Product.all
+      end
+
   end
 
   def new

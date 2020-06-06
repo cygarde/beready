@@ -7,7 +7,11 @@ before_action :set_product, only: [:show, :edit, :destroy]
   def index
     @products = Product.where.not(latitude: nil, longitude: nil)
     @markers = @products.map do |product|
-      { lat: product.latitude, lng: product.longitude }
+      {
+        lat: product.latitude,
+        lng: product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: product })
+      }
     end
   end
 

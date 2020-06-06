@@ -1,35 +1,54 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-fixed-top">
-  <%= link_to "#", class: "navbar-brand" do %>
-  <%= image_tag "logo.png" %>
-  <% end %>
+
+
+  <div class="d-flex">
+    <div class="pictos d-block text-center">
+      <svg class="bi bi-person-circle " width="2em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+        <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+      </svg>
+        <div class="text-picto"><%= link_to "Se connecter", user_session_path %></div>
+    </div>
+
+    <div class="pictos d-block text-center">
+      <svg class="bi bi-heart" width="2em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+      </svg>
+        <div class="text-picto">favoris</div>
+    </div>
+
+    <div class="pictos d-block text-center">
+      <svg class="bi bi-chat-square" width="2em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg>
+        <div class="text-picto">messages</div>
+    </div>
+  </div>
+
+  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %>
+
+  <%= link_to "Be Ready", products_path(@products), class: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Poser une annonce ", new_product_path, class: "btn btn-info btn-lg" %>
-      </li>
+
       <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+        <%= image_tag "avatar.jpg", class: "dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "Déposer une annonce", new_product_path, class: "dropdown-item" %>
+          <%= link_to "Mes annonces", "#", class: "dropdown-item" %>
+          <%= link_to "Messages", "#", class: "dropdown-item" %>
+          <%= link_to "Favoris", "#", class: "dropdown-item" %>
           <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Poser une annonce ", new_product_path, class: "btn btn-outline-warning" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-white" %>
-        </li>
-      <% end %>
+
     </ul>
   </div>
 </div>

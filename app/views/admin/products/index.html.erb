@@ -1,67 +1,66 @@
 <div class="beready-ctn">
-  <div class="card-category-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'dasboard.jpg' %>');">
-    <h1 class="align-middle">Mon compte</h1>
-  </div>
-  <div class="container">
-    <h1 class="align-middle">Mes articles en locations</h1>
-  </div>
-  <div class="container">
+
+
+  <div class="container ">
     <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="products-presentation">
-          <% @products.each do |product| %>
-          <div id="container-app">
-            <div class="product-details">
-              <div class="d-flex">
-                <% if product.photo.attached? %>
-                <p><%= product.name %></p>
-                <span class="hint-star star">
-                  <% counter = 0 %>
-                  <% 3.times do %>
-                  <i class="fa <%= product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                  <% counter += 1 %>
-                  <% end %>
-                </span>
+      <div class="d-flex">
+        <div class="product-admin col-12 col-md-6">
+          <h1 class="title-admin">Mes articles en locations</h1>
+          <div class="products-presentation-admin">
+            <% @products.each do |product| %>
+            <div id="container-app">
+              <div class="product-details">
+                <div class="d-flex">
+                  <% if product.photo.attached? %>
+                  <p><%= product.name %></p>
+                  <span class="hint-star star">
+                    <% counter = 0 %>
+                    <% 3.times do %>
+                    <i class="fa <%= product.state > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                    <% counter += 1 %>
+                    <% end %>
+                  </span>
+                </div>
+                <div class="control">
+                  <button class="btn-beready">
+                  <span class="price"><%= product.unit_price %>$ / jour</span>
+                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                  <span class="buy"><%= link_to "Détails", product_path(product), class:"text-dark" %></span>
+                  </button>
+                </div>
               </div>
-              <div class="control">
-                <button class="btn-beready">
-                <span class="price"><%= product.unit_price %>$ / jour</span>
-                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                <span class="buy"><%= link_to "Détails", product_path(product), class:"text-dark" %></span>
-                </button>
+              <div class="product-image">
+                <%= cl_image_tag product.photo.key %>
               </div>
+              <% else %>
+              <%= product.name %>
+              <%= product.description %>
+              <%= product.state %>
+              <%= product.unit_price %>
+              <%= product.category %>
+              <%= product.city %>
+              <%= link_to "Détail", product_path(product) %>
+              <% end %>
             </div>
-            <div class="product-image">
-              <%= cl_image_tag product.photo.key %>
-            </div>
-            <% else %>
-            <%= product.name %>
-            <%= product.description %>
-            <%= product.state %>
-            <%= product.unit_price %>
-            <%= product.category %>
-            <%= product.city %>
-            <%= link_to "Détail", product_path(product) %>
             <% end %>
           </div>
-          <% end %>
         </div>
-      </div>
-      <div class="col-12">
-        <div>
-          <h1 class="align-center">Mes réservations</h1>
-        </div>
-        <div class="col-12 col-md-6 mr-0">
-          <% @bookings.each do |booking| %>
-            <div class="card-product-dashboard">
-              <%= cl_image_tag booking.product.photo.key %>
-              <div class="card-product-dashboard-infos">
-                <h2><%= booking.user.email%></h2>
+        <div class="col-12">
+          <div>
+            <h1 class="title-resa">Mes réservations</h1>
+          </div>
+          <div class="col-12 col-md-6 mr-0 pt-0">
+            <% @bookings.each do |booking| %>
+              <div class="card-product-dashboard">
+                <%= cl_image_tag booking.product.photo.key %>
+                <div class="card-product-dashboard-infos">
+                  <h2><%= booking.user.email%></h2>
+                </div>
               </div>
-            </div>
 
 
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

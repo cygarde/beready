@@ -35,7 +35,7 @@ product3.user = user
 product3.save
 
 file4 = URI.open('https://images.unsplash.com/photo-1518388389348-b60e09ab7627?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-product4 = Product.new(name: "Sac de couchage", description: "ARPENAZ 15°. Sac de couchage équipé d'un zip intégral pour une ouverture pratique. Il est également convertible en couette.", state: 3, category: "Camping", unit_price: 10, city: "Marseille")
+product4 = Product.new(name: "Sac de couchage", description: "ARPENAZ 15°. Sac de couchage équipé d'un zip intégral pour une ouverture pratique. Il est également convertible en couette.", state: 3, category: "Camping", unit_price: 10, city: "Toulouse")
 product4.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
 product4.user = user
 product4.save
@@ -47,13 +47,13 @@ product5.user = user
 product5.save
 
 file6 = URI.open('https://images.unsplash.com/photo-1513908512605-c58d3f08079f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1369&q=80')
-product6 = Product.new(name: "Masque de ski", description: "Le AIRFLUX est un masque de ski doté d'un écran sphérique rigide, permettant de réduire la déformation optique. L'écran se déboîte pour faciliter la ventilation et limiter la formation de buée.", state: 3, category: "Ski", unit_price: 10, city: "Lyon")
+product6 = Product.new(name: "Masque de ski", description: "Le AIRFLUX est un masque de ski doté d'un écran sphérique rigide, permettant de réduire la déformation optique. L'écran se déboîte pour faciliter la ventilation et limiter la formation de buée.", state: 3, category: "Ski", unit_price: 10, city: "Pau")
 product6.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
 product6.user = user
 product6.save
 
 file7 = URI.open('https://images.unsplash.com/photo-1571945192246-4fcee13c27b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')
-product7 = Product.new(name: "Tapis de yoga", description: "En recherche d'authenticité, de simplicité et de douceur, cette natte vous transporte aux origines du yoga. ", state: 2, category: "Yoga", unit_price: 7, city: "Marseille")
+product7 = Product.new(name: "Tapis de yoga", description: "En recherche d'authenticité, de simplicité et de douceur, cette natte vous transporte aux origines du yoga. ", state: 2, category: "Yoga", unit_price: 7, city: "biarritz")
 product7.photo.attach(io: file7, filename: 'nes.png', content_type: 'image/png')
 product7.user = user
 product7.save

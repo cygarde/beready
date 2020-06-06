@@ -1,14 +1,14 @@
 <div class="banner">
-<div class="home-video-wrapper align-items-center justify-content-center">
-  <%= video_tag "arbres_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
-</div>
-
+  <div class="home-video-wrapper align-items-center justify-content-center">
+    <%= video_tag "arbres_video.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+  </div>
   <div class="banner-content">
     <h3>N'achete pas ! Ne t'encombre pas !</h3>
     <h3>Trouve ce dont tu as besoin à destination</h3>
     <p>
       <span id="banner-typed-text"></span>
     </p>
+
     <div class="container">
      <%= form_tag products_path, method: :get do %>
       <%= text_field_tag :query,
@@ -20,19 +20,15 @@
     <% end %>
   </div>
 
+
+   
+
+  </div>
 </div>
 <div class="container">
   <div class="last-cards">
 
-
-  <div class="text-categorie">
-    <h3>Les objets les plus loués</h2>
-  </div>
-
-  </div>
-</div>
-
-
+    <h2>Les objets les plus loués</h2>
 
       <div class="products-presentation">
         <% @products.each do |product| %>
@@ -50,7 +46,7 @@
               </span>
             </div>
               <div class="control">
-                <button class="btn">
+                <button class="btn-beready">
                 <span class="price"><%= product.unit_price %>$ / jour</span>
                 <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                   <!--<%= link_to "Détail", product_path(product) %>-->
@@ -74,7 +70,6 @@
             <% end %>
         </div>
 
-
 <div class="container">
   <div class="text-categorie">
     <h2>Selectionnez vos produits a louer en fonction de l'activité pratiqué pendant vos vacances </h2>
@@ -83,49 +78,37 @@
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path 'surf.jpg' %>');">
       Surf
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'rando.jpg' %>');">
       Randonné
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'ski2.jpg' %>');">
       Ski
     </div>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'camping3.jpg' %>');">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'camping3.jpg' %>');">
       Camping
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'city.jpg' %>');">
       Ville
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'bivouac.jpg' %>');">
-
       Bivouac
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'plongessmarine.jpg' %>');">
       Plongée sous marine
     </div>
-
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'peche2.jpg' %>');">
       Pêche
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'skinau.jpg' %>');">
-
       Ski nautique
     </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'poussette.jpg' %>');">
       Pour le nourisson
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'road.jpg' %>');">
       Road trip
     </div>
-
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'divers2.jpg' %>');">
-
       Divers
     </div>
   </div>

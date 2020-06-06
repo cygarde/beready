@@ -6,14 +6,16 @@
     <p>
       <span id="banner-typed-text"></span>
     </p>
-    <%= select_tag "timezone", options_from_collection_for_select(
-      ActiveSupport::TimeZone.all.
-        map { |tz| tz.tzinfo }.
-        sort_by { |tzinfo| tzinfo.name },
-      :name, :name),
-      class: 'select2' %>
-    <%= link_to "Trouver", products_path, class: "btn btn-outline-success" %>
-  </div>
+
+     <%= form_tag products_path, method: :get do %>
+      <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+             placeholder: "Trouver un produits"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
 </div>
 <div class="container">
   <div class="last-cards">

@@ -124,7 +124,7 @@ body {
   bottom: 1%;
 }
 /* the Button */
-.btn {
+.btn-beready {
   transform: translateY(0px);
   transition: 0.3s linear;
   background: #49C608;
@@ -140,9 +140,9 @@ body {
 
 }
 
-.btn:hover{transform: translateY(-4px);}
+.btn-beready:hover{transform: translateY(-4px);}
 
-.btn span {
+.btn-beready span {
   font-family: 'Farsan', cursive;
   transition: transform 0.3s;
   padding: 4px 4px;
@@ -151,18 +151,18 @@ body {
 
 }
 /* shopping cart icon */
-.btn .price, .shopping-cart{
+.btn-beready .price, .shopping-cart{
   background: #333;
   border: 0;
   margin: 0;
 }
 
-.btn .price {
+.btn-beready .price {
   transform: translateX(-10%); padding-right: 10px; padding-left: 10px;
 }
 
 /* the Icon */
-.btn .shopping-cart {
+.btn-beready .shopping-cart {
   transform: translateX(-100%);
   position: absolute;
   background: #333;
@@ -172,11 +172,11 @@ body {
 }
 
 /* buy */
-.btn .buy {z-index: 3; font-weight: bolder;}
+.btn-beready .buy {z-index: 3; font-weight: bolder;}
 
-.btn:hover .price {transform: translateX(-110%);}
+.btn-beready:hover .price {transform: translateX(-110%);}
 
-.btn:hover .shopping-cart {transform: translateX(0%);}
+.btn-beready:hover .shopping-cart {transform: translateX(0%);}
 
 
 

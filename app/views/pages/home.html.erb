@@ -9,15 +9,19 @@
       <span id="banner-typed-text"></span>
     </p>
 
-
-    <%= form_tag products_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Trouver un produits"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <div class="container">
+     <%= form_tag products_path, method: :get do %>
+      <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+             placeholder: "Trouver un produits"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+  </div>
+
+
+   
 
   </div>
 </div>

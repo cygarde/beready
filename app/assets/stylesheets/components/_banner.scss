@@ -1,10 +1,10 @@
 .banner {
-  color: white;
+  color: green;
   text-align: center;
   height: 100vh;
   background-size: cover !important;
   background-position: center;
-  display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   margin-bottom: 32px;
@@ -14,6 +14,14 @@
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
+
+.banner h3 {
+  color: #EC0B43;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;
@@ -29,4 +37,19 @@
 .btn-outline-success {
   width: 150px;
 
+}
+
+#banner-typed-text {
+  color: orange;
+  font-weight: bold;
+
+}
+
+.banner-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 200px;
 }
